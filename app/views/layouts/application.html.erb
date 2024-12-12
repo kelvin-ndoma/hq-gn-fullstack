@@ -23,21 +23,55 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-gray-100">
+  <div class="container mx-auto mt-6"> <!-- Added mt-6 to move the navbar down -->
+    <nav class="bg-white shadow-md py-4"> <!-- Removed pt-6 as it's not needed -->
+      <div class="flex justify-between items-center">
+        <!-- Logo Section -->
+        <div class="flex items-center space-x-2">
+          <a href="/" class="text-2xl font-bold text-gray-800 hover:text-blue-500">
+            <%= image_tag('main.png', alt: 'Logo', class: 'h-8') %> 
+          </a>
+        </div>
 
-  <div><%= notice %></div>
-   <div><%= alert %></div>
+        <!-- Navigation Links -->
+        <div>
+          <% if user_signed_in? %>
+            <div class="space-x-4">
+              <%= link_to "Edit Password", edit_password_path, class: "text-gray-700 hover:text-blue-500" %>
+              <%= button_to "Log out", session_path, method: :delete, class: "bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 ease-in-out" %>
+            </div>
+          <% else %>
+            <div class="space-x-4">
+              <%= link_to "Sign up", new_registration_path, class: "bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 ease-in-out" %>
+              <%= link_to "Log in", new_session_path, class: "bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 ease-in-out" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </nav>
 
-  <% if user_signed_in? %>
-      <%= link_to "Edit password", edit_password_path %>
-      <%= button_to "Log out", session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_registration_path %>
-      <%= link_to "Log in", new_session_path %>
-    <% end %>
+    <!-- Flash Messages -->
+    <div class="mt-4">
+      <% if notice %>
+        <div class="bg-green-500 text-white py-2 px-4 rounded mb-2">
+          <%= notice %>
+        </div>
+      <% end %>
 
-    <main>
+      <% if alert %>
+        <div class="bg-red-500 text-white py-2 px-4 rounded mb-2">
+          <%= alert %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Main Content -->
+    <main class="mt-8">
       <%= yield %>
     </main>
-  </body>
+  </div>
+</body>
+
+
 </html>
