@@ -1,0 +1,137 @@
+<!-- app/views/pages/home.html.erb -->
+
+<div class="bg-white">
+  <!-- Header Section -->
+  <header class="bg-gray-50 py-16">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+      <div class="flex flex-col justify-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800">
+          The International Hub for Black Professionals
+        </h1>
+        <p class="mt-4 text-lg text-gray-600">
+          Connecting 1 Million+ Black Professionals Worldwide
+        </p>
+        <div class="mt-6 space-x-4">
+          <%= link_to '/signup' do %>
+            <button class="px-6 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">
+              Sign Up
+            </button>
+          <% end %>
+          <%= link_to '/login' do %>
+            <button class="px-6 py-2 text-blue-600 border border-blue-600 rounded hover:bg-blue-50">
+              Log In
+            </button>
+          <% end %>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <%= image_tag "growth.png", alt: "Hero", class: "rounded-lg w-full max-w-md md:max-w-lg" %>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+      <div class="text-center">
+        <div class="text-5xl text-blue-600 mb-4">👥</div>
+        <h3 class="text-xl font-semibold">Collaboration</h3>
+        <p class="mt-2 text-gray-600">
+          Find career mentors, industry contacts, or partners for your next business venture.
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="text-5xl text-blue-600 mb-4">🌐</div>
+        <h3 class="text-xl font-semibold">Networking</h3>
+        <p class="mt-2 text-gray-600">
+          Connect with like-minded individuals in your city and beyond.
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="text-5xl text-blue-600 mb-4">🌏</div>
+        <h3 class="text-xl font-semibold">Cultural Exchange</h3>
+        <p class="mt-2 text-gray-600">
+          Meet people from places you might never have visited otherwise.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section class="py-16">
+    <div class="container mx-auto grid md:grid-cols-2 gap-8 px-4">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">
+          Our Community
+        </h2>
+        <ul class="space-y-6">
+          <li>
+            <h3 class="text-xl font-semibold text-gray-700">
+              In-Person & Virtual Events
+            </h3>
+            <p class="text-gray-600">
+              Learn about events in your area or create your own to find your tribe.
+            </p>
+          </li>
+          <li>
+            <h3 class="text-xl font-semibold text-gray-700">
+              Interest Groups
+            </h3>
+            <p class="text-gray-600">
+              Discuss, devise, and discover your interests with fellow members.
+            </p>
+          </li>
+          <li>
+            <h3 class="text-xl font-semibold text-gray-700">
+              Build Your Global Network
+            </h3>
+            <p class="text-gray-600">
+              Showcase who you are and curate the best representation of yourself.
+            </p>
+          </li>
+        </ul>
+        <button class="mt-6 px-6 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">
+          Explore
+        </button>
+      </div>
+      <div>
+        <%= image_tag "growth.png", alt: "Hero", class: "rounded-lg w-full max-w-md md:max-w-lg" %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engage and Connect Section -->
+  <section class="py-16">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+      <div class="flex justify-left">
+        <%= image_tag "growth.png", alt: "Hero", class: "rounded-lg w-full max-w-md md:max-w-lg" %>
+      </div>
+      <div class="flex flex-col justify-center">
+        <h2 class="text-3xl font-bold text-gray-800">
+          Engage and Connect
+        </h2>
+        <ul class="mt-6 space-y-4">
+          <li>
+            <h3 class="text-xl font-semibold text-gray-700">
+              Members Forums
+            </h3>
+            <p class="text-gray-600">
+              Start or join discussions on trending topics and burning questions.
+            </p>
+          </li>
+          <li>
+            <h3 class="text-xl font-semibold text-gray-700">
+              Attend an Event
+            </h3>
+            <p class="text-gray-600">
+              RSVP and make lifelong memories with global peers through easy event access.
+            </p>
+          </li>
+        </ul>
+        <button class="mt-6 px-6 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
