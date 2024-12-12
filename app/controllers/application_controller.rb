@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
  
   private
+  
+  def after_sign_in_path_for(resource)
+    dashboard_path
+  end
 
   def authenticate_user!
     redirect_to root_path, alert: "Please Login" unless user_signed_in?
