@@ -23,11 +23,21 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-50">
-    <%= render "shared/navbar" %> <!-- Include the navbar -->
-      <main class="pt-24">
-        <%= yield %> <!-- Content of individual views -->
-      </main>
-    <%= render "shared/footer" %> <!-- Include the footer -->
+  <body>
+
+  <div><%= notice %></div>
+   <div><%= alert %></div>
+
+  <% if user_signed_in? %>
+      <%= link_to "Edit password", edit_password_path %>
+      <%= button_to "Log out", session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_registration_path %>
+      <%= link_to "Log in", new_session_path %>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

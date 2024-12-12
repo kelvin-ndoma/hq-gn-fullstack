@@ -1,0 +1,47 @@
+<h1>Sign Up</h1>
+
+<%= form_with model: @user, url: registration_path do |form| %>
+  <% if form.object.errors.any? %>
+    <div class="errors">
+      <% form.object.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, required: true %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, required: true, minlength: 6 %>
+  </div>
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, required: true %>
+  </div>
+  <div>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+  <div>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+  <div>
+    <%= form.label :bio %>
+    <%= form.text_area :bio %>
+  </div>
+  <div>
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+  <div>
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+  <div>
+    <%= form.submit "Sign up" %>
+  </div>
+<% end %>
