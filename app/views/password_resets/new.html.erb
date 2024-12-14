@@ -1,12 +1,12 @@
-<h1>Reset your Password</h1>
+<h1 class="text-3xl font-bold mb-4">Reset your Password</h1>
 
-<%= form_with scope: :user, url: password_reset_path do |form| %>
-    <div>
-      <%= form.label :email, "Email Address" %>
-      <%= form.email_field :email, required: true, autofocus: true %>
-    </div>
-    <div>
-      <%= form.submit "Reset Password" %>
-    </div>
-  <% end %>
-  
+<%= form_with scope: :user, url: password_reset_path, class:"space-y-4" do |form| %>
+  <div>
+    <%= form.label :email, "Email Address", class:"block text-sm font-medium text-gray-700" %>
+    <%= form.email_field :email, required: true, autofocus: true, class:"mt-1 p-2 w-full border rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
+  </div>
+
+  <div>
+    <%= form.submit "Reset Password", class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+<% end %>

@@ -1,28 +1,44 @@
-<h1>Update edit_password_path</h1>
+<% if current_page?(edit_password_path) %>
+  <!-- Full-page container for the password update form -->
+  <div style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #f4f4f4;">
+    <!-- Form container -->
+    <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 400px;">
+      <h1 style="text-align: center; color: #333;">Update Password</h1>
 
-<%= form_with model: current_user, url: password_path do |form| %>
-  <% if form.object.errors.any? %>
-    <div class="errors">
-      <% form.object.errors.full_messages.each do |message| %>
-        <div><%= message %></div>
+      <!-- Rails Form -->
+      <%= form_with model: current_user, url: password_path, local: true do |form| %>
+        <!-- Error Messages -->
+        <% if form.object.errors.any? %>
+          <div style="background-color: #ffcccc; padding: 10px; margin-bottom: 15px; border-radius: 5px; color: #b33c3c;">
+            <% form.object.errors.full_messages.each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <!-- Current Password -->
+        <div style="margin-bottom: 15px;">
+          <%= form.label :password_challenge, "Current Password", style: "display: block; font-weight: bold;" %>
+          <%= form.password_field :password_challenge, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;" %>
+        </div>
+
+        <!-- New Password -->
+        <div style="margin-bottom: 15px;">
+          <%= form.label :password, "New Password", style: "display: block; font-weight: bold;" %>
+          <%= form.password_field :password, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;" %>
+        </div>
+
+        <!-- Password Confirmation -->
+        <div style="margin-bottom: 15px;">
+          <%= form.label :password_confirmation, "Confirm New Password", style: "display: block; font-weight: bold;" %>
+          <%= form.password_field :password_confirmation, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;" %>
+        </div>
+
+        <!-- Submit Button -->
+        <div style="text-align: center;">
+          <%= form.submit "Update Password", style: "background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" %>
+        </div>
       <% end %>
     </div>
-  <% end %>
-
-   <div>
-    <%= form.label :password_challenge, "Current Password" %>
-    <%= form.password_field :password_challenge %>
-  </div>
-  <div>
-    <%= form.label :password, "New Password" %>
-    <%= form.password_field :password %>
-  </div>
-  <div>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation%>
-  </div>
- 
-  <div>
-    <%= form.submit "Update pssword" %>
   </div>
 <% end %>

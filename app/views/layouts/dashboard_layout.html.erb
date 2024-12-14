@@ -12,7 +12,6 @@
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-    <link href="https://unpkg.com/tailwindcss@3.4.16/dist/tailwind.min.css" rel="stylesheet">
 
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -23,16 +22,15 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+  
   <body>
-    <!-- Render the home navbar only when the user is NOT signed in -->
-    <% if !user_signed_in? %>
-      <%= render 'shared/home_navbar' %>
-    <% end %>
+  <!-- Render the dashboard navbar only if the user is signed in -->
+  <% if user_signed_in? %>
+    <%= render 'shared/dashboard_navbar' %>
+  <% end %>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-6">
-      <%= yield %>
-    </main>
-  </body>
+  <!-- Main Content -->
+  <%= yield %>
+</body>
+
 </html>

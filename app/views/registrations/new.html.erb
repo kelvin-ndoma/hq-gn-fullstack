@@ -1,47 +1,70 @@
-<h1>Sign Up</h1>
+<div style="border: 2px solid #000; padding: 20px; border-radius: 10px; background-color: #f9f9f9; width: 400px; margin: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+  <h1 style="text-align: center; font-family: Arial, sans-serif; color: #333;">Sign Up</h1>
 
-<%= form_with model: @user, url: registration_path do |form| %>
-  <% if form.object.errors.any? %>
-    <div class="errors">
-      <% form.object.errors.full_messages.each do |message| %>
-        <div><%= message %></div>
+  <div class="mt-6"> 
+    <%= form_with model: @user, url: registration_path, local: true do |form| %>
+      
+      <!-- Error Messages -->
+      <% if form.object.errors.any? %>
+        <div style="color: red; margin-bottom: 10px;">
+          <% form.object.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
       <% end %>
-    </div>
-  <% end %>
 
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email, required: true %>
+      <!-- Email -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :email, style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+        <%= form.email_field :email, required: true, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px;" %>
+      </div>
+
+      <!-- Password -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :password, style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+        <%= form.password_field :password, required: true, minlength: 6, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px;" %>
+      </div>
+
+      <!-- Password Confirmation -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :password_confirmation, style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+        <%= form.password_field :password_confirmation, required: true, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px;" %>
+      </div>
+
+      <!-- First Name -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :first_name, style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+        <%= form.text_field :first_name, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px;" %>
+      </div>
+
+      <!-- Last Name -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :last_name, style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+        <%= form.text_field :last_name, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px;" %>
+      </div>
+
+      <!-- Bio -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :bio, style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+        <%= form.text_area :bio, rows: 4, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px;" %>
+      </div>
+
+      <!-- City -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :city, style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+        <%= form.text_field :city, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px;" %>
+      </div>
+
+      <!-- Country -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :country, style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+        <%= form.text_field :country, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px;" %>
+      </div>
+
+      <!-- Submit Button -->
+      <div style="margin-top: 20px;">
+        <%= form.submit "Sign Up", style: "width: 100%; padding: 12px; background-color: #4CAF50; border: none; border-radius: 5px; color: white; font-size: 16px; cursor: pointer;" %>
+      </div>
+    <% end %>
   </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true, minlength: 6 %>
-  </div>
-  <div>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, required: true %>
-  </div>
-  <div>
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-  <div>
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-  <div>
-    <%= form.label :bio %>
-    <%= form.text_area :bio %>
-  </div>
-  <div>
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-  <div>
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
-  <div>
-    <%= form.submit "Sign up" %>
-  </div>
-<% end %>
+</div>

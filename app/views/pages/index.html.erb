@@ -1,1 +1,122 @@
-<h1> Home </h1>
+<div style="background-color: white;">
+  <!-- Header Section -->
+  <header style="background-color: #f9fafb; padding-top: 64px; padding-bottom: 64px;">
+  <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-left: 16px; padding-right: 16px;">
+    <div style="display: flex; flex-direction: column; justify-content: center;">
+      <h1 style="font-size: 2.25rem; font-weight: bold; color: #2d3748;">
+        The International Hub for Black Professionals
+      </h1>
+      <p style="margin-top: 16px; font-size: 1.125rem; color: #4a5568;">
+        Connecting 1 Million+ Black Professionals Worldwide
+      </p>
+      <div style="margin-top: 24px; display: flex; gap: 16px;">
+        <!-- Replace Sign Up Button with Link -->
+        <%= link_to new_registration_path, style: "padding-left: 24px; padding-right: 24px; padding-top: 8px; padding-bottom: 8px; color: white; background-color: #3182ce; border-radius: 0.375rem; text-decoration: none; cursor: pointer; transition: background-color 0.3s ease;" do %>
+          Sign Up
+        <% end %>
+
+        <!-- Replace Log In Button with Link -->
+        <%= link_to new_session_path, style: "padding-left: 24px; padding-right: 24px; padding-top: 8px; padding-bottom: 8px; color: #3182ce; border: 1px solid #3182ce; border-radius: 0.375rem; text-decoration: none; cursor: pointer; transition: background-color 0.3s ease; background-color: transparent;" do %>
+          Log In
+        <% end %>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <%= image_tag "growth.png", alt: "Hero", style: "border-radius: 0.375rem; width: 100%; max-width: 500px;" %>
+    </div>
+  </div>
+</header>
+
+  <!-- Features Section -->
+  <section style="padding-top: 64px; padding-bottom: 64px; background-color: #f7fafc;">
+    <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; padding-left: 16px; padding-right: 16px;">
+      <div style="text-align: center;">
+        <div style="font-size: 3rem; color: #3182ce; margin-bottom: 16px;">👥</div>
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: #2d3748;">Collaboration</h3>
+        <p style="margin-top: 8px; color: #4a5568;">
+          Find career mentors, industry contacts, or partners for your next business venture.
+        </p>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 3rem; color: #3182ce; margin-bottom: 16px;">🌐</div>
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: #2d3748;">Networking</h3>
+        <p style="margin-top: 8px; color: #4a5568;">
+          Connect with like-minded individuals in your city and beyond.
+        </p>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 3rem; color: #3182ce; margin-bottom: 16px;">🌏</div>
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: #2d3748;">Cultural Exchange</h3>
+        <p style="margin-top: 8px; color: #4a5568;">
+          Meet people from places you might never have visited otherwise.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section style="padding-top: 64px; padding-bottom: 64px;">
+    <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-left: 16px; padding-right: 16px;">
+      <div>
+        <h2 style="font-size: 1.875rem; font-weight: bold; color: #2d3748; margin-bottom: 16px;">Our Community</h2>
+        <ul style="list-style-type: none; padding: 0;">
+          <li style="margin-bottom: 24px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #4a5568;">In-Person & Virtual Events</h3>
+            <p style="color: #4a5568;">
+              Learn about events in your area or create your own to find your tribe.
+            </p>
+          </li>
+          <li style="margin-bottom: 24px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #4a5568;">Interest Groups</h3>
+            <p style="color: #4a5568;">
+              Discuss, devise, and discover your interests with fellow members.
+            </p>
+          </li>
+          <li style="margin-bottom: 24px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #4a5568;">Build Your Global Network</h3>
+            <p style="color: #4a5568;">
+              Showcase who you are and curate the best representation of yourself.
+            </p>
+          </li>
+        </ul>
+        <button style="margin-top: 24px; padding-left: 24px; padding-right: 24px; padding-top: 8px; padding-bottom: 8px; color: white; background-color: #3182ce; border-radius: 0.375rem; cursor: pointer; transition: background-color 0.3s ease;">
+          Explore
+        </button>
+      </div>
+      <div>
+        <%= image_tag "growth.png", alt: "Community", style: "border-radius: 0.375rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px; width: 100%;" %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engage and Connect Section -->
+  <section style="padding-top: 64px; padding-bottom: 64px;">
+    <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-left: 16px; padding-right: 16px;">
+      <div style="display: flex; justify-content: flex-start;">
+        <%= image_tag "growth.png", alt: "Engage and Connect", style: "border-radius: 0.375rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px; width: 100%; max-width: 500px;" %>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 1.875rem; font-weight: bold; color: #2d3748;">
+          Engage and Connect
+        </h2>
+        <ul style="margin-top: 24px; list-style-type: none; padding: 0;">
+          <li style="margin-bottom: 24px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #4a5568;">Members Forums</h3>
+            <p style="color: #4a5568;">
+              Start or join discussions on trending topics and burning questions.
+            </p>
+          </li>
+          <li style="margin-bottom: 24px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #4a5568;">Attend an Event</h3>
+            <p style="color: #4a5568;">
+              RSVP and make lifelong memories with global peers through easy event access.
+            </p>
+          </li>
+        </ul>
+        <button style="margin-top: 24px; padding-left: 24px; padding-right: 24px; padding-top: 8px; padding-bottom: 8px; color: white; background-color: #3182ce; border-radius: 0.375rem; cursor: pointer; transition: background-color 0.3s ease;">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </section>
+</div>

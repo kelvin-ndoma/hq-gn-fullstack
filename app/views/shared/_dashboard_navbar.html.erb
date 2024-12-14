@@ -1,0 +1,88 @@
+<header style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white; font-family: sans-serif; letter-spacing: 0.05em; position: relative; z-index: 50;">
+  <section style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 40px; border-bottom: 1px solid #e5e7eb; min-height: 70px;">
+    
+    <!-- Logo (aligned to the left) -->
+    <%= link_to dashboard_path, style: "width: 144px;" do %>
+      <%= image_tag "main.png", alt: "logo", style: "width: 144px;" %>
+    <% end %>
+
+    <!-- Right Section -->
+    <div style="display: flex; align-items: center; gap: 32px;">
+      <!-- Notifications -->
+      <span style="position: relative;">
+        <i class="fa fa-bell" style="cursor: pointer; color: #2d3748; transition: color 0.3s;" aria-hidden="true"></i>
+      </span>
+
+      <!-- Locations -->
+      <span style="position: relative;">
+        <i class="fa fa-map-marker-alt" style="cursor: pointer; color: #2d3748; transition: color 0.3s;" aria-hidden="true"></i>
+      </span>
+
+      <% if controller_name == 'dashboard' %>
+      <!-- Profile Icon -->
+      <div style="position: relative;">
+        <div style="display: inline-block; cursor: pointer; border: 1px solid #d1d5db;" onclick="toggleDropdown('profileDropdown')" aria-expanded="false" aria-controls="profileDropdown">
+          <span style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #3182ce; color: white;">
+            <%= current_user.first_name[0].upcase if current_user %>
+          </span>
+        </div>
+    
+        <!-- Profile Dropdown -->
+        <div id="profileDropdown" style="display: none; position: absolute; right: 0; margin-top: 8px; width: 192px; background-color: white; border: 1px solid #d1d5db; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); z-index: 50;">
+          <%= link_to "Profile", edit_password_path, style: "display: block; padding: 8px 16px; color: #2d3748; text-decoration: none; transition: background-color 0.3s;" %>
+          <%= button_to "Log out", session_path, method: :delete, style: "display: block; padding: 8px 16px; color: #2d3748; text-decoration: none; transition: background-color 0.3s;" %>
+        </div>
+      </div>
+    <% end %>
+    
+
+      <!-- Hamburger Menu Icon - Small Screens -->
+      <div style="display: flex; align-items: center;" id="hamburgerIcon" onclick="toggleMenu()">
+        <i class="fa fa-bars" style="color: #2d3748; cursor: pointer;"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hamburger Menu Items - Only for Small Screens -->
+  <div id="menuContainer" style="display: none; position: absolute; left: 0; top: 70px; width: 100%; background-color: white; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); z-index: 40;">
+    <ul style="display: flex; flex-direction: column; gap: 16px; padding: 16px; list-style: none; margin: 0;">
+      <li><%= link_to "Newsfeed", "#", style: "color: #2d3748; text-decoration: none; font-size: 16px; font-weight: 600; transition: color 0.3s;" %></li>
+      <li><%= link_to "Members", "#", style: "color: #2d3748; text-decoration: none; font-size: 16px; font-weight: 600; transition: color 0.3s;" %></li>
+      <li><%= link_to "Events", "#", style: "color: #2d3748; text-decoration: none; font-size: 16px; font-weight: 600; transition: color 0.3s;" %></li>
+      <li><%= link_to "Groups", "#", style: "color: #2d3748; text-decoration: none; font-size: 16px; font-weight: 600; transition: color 0.3s;" %></li>
+    </ul>
+  </div>
+
+  <!-- Menu for Large Screens -->
+  <div style="display: flex; justify-content: center; padding: 12px 0;" class="lg:flex">
+    <div style="background-color: white; width: 100%; display: flex; justify-content: center;">
+      <ul style="display: flex; gap: 40px; list-style: none; margin: 0;">
+        <li><%= link_to "Newsfeed", "#", style: "color: #007bff; font-weight: 600; font-size: 15px; text-decoration: none; transition: color 0.3s;" %></li>
+        <li><%= link_to "Members", "#", style: "color: #2d3748; font-size: 15px; text-decoration: none; transition: color 0.3s;" %></li>
+        <li><%= link_to "Events", "#", style: "color: #2d3748; font-size: 15px; text-decoration: none; transition: color 0.3s;" %></li>
+        <li><%= link_to "Groups", "#", style: "color: #2d3748; font-size: 15px; text-decoration: none; transition: color 0.3s;" %></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+    dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+  }
+
+  document.addEventListener('click', function (event) {
+    const dropdown = document.getElementById('profileDropdown');
+    const trigger = document.querySelector('[onclick="toggleDropdown(\'profileDropdown\')"]');
+
+    if (!dropdown.contains(event.target) && !trigger.contains(event.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+
+  function toggleMenu() {
+    const menu = document.getElementById('menuContainer');
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
