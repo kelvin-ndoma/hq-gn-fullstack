@@ -59,7 +59,7 @@ group :development do
   gem "web-console"
 end
 
-gem "font-awesome-sass", "~> 6.5.1"
+gem "font-awesome-sass", "~> 6.7.2"
 
 gem 'tailwindcss-rails'
 
